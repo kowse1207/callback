@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Callback</title>
     <script>
-        // JavaScript to handle redirection
         window.onload = function () {
-            // Replace "myapp://payment-callback" with your app's deep link
-            window.location.href = "myapp://payment-callback?status=success";
+            // Try opening the deep link immediately
+            var deepLink = "myapp://payment-callback?status=success";
+            
+            // Attempt to redirect to the app
+            window.location = deepLink;
+    
+            // Fallback to a webpage if the app is not installed
+            setTimeout(function() {
+                window.location = "https://kowse1207.github.io/callback/";
+            }, 1000); // Delay for a second before redirecting to fallback
         };
     </script>
+    
 </head>
 <body>
     <h1>Redirecting...</h1>
