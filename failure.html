@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Successful</title>
+    <title>Payment Failed</title>
     <style>
-        /* Global reset for consistent styling */
+        /* Global reset */
         * {
             margin: 0;
             padding: 0;
@@ -18,11 +18,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f9fafc;
+            background-color: #fef4f4;
             color: #333;
         }
 
-        .success-container {
+        .failure-container {
             text-align: center;
             padding: 30px;
             border-radius: 10px;
@@ -30,9 +30,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .success-icon {
+        .failure-icon {
             font-size: 80px;
-            color: #4caf50;
+            color: #f44336; /* Red color */
             margin-bottom: 20px;
         }
 
@@ -52,37 +52,37 @@
             display: inline-block;
             text-decoration: none;
             color: #fff;
-            background-color: #4caf50;
+            background-color: #f44336; /* Red button */
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         a:hover {
-            background-color: #45a049;
+            background-color: #d32f2f;
         }
     </style>
     <script>
         window.onload = function () {
-            // Attempt to open the deep link
-            var deepLink = "myapp://payment-callback?status=success";
+            // Deep link for failure callback
+            var deepLink = "myapp://payment-callback?status=failure";
 
             // Redirect to the deep link
             window.location = deepLink;
 
-            // Optional: Set a timeout for fallback in case deep link fails
+            // Optional: Fallback timeout in case the app doesn't open
             setTimeout(function () {
-                console.log("Fallback link triggered");
+                console.log("Fallback link triggered.");
             }, 1500);
         };
     </script>
 </head>
 <body>
-    <div class="success-container">
-        <div class="success-icon">✔</div>
-        <h1>Payment Successful!</h1>
-        <p>Your payment has been processed successfully. You will be redirected to the app shortly.</p>
-        <a href="myapp://payment-callback?status=success">Return to App</a>
+    <div class="failure-container">
+        <div class="failure-icon">✖</div>
+        <h1>Payment Failed</h1>
+        <p>Unfortunately, your payment could not be processed. Please try again or contact support if the issue persists.</p>
+        <a href="myapp://payment-callback?status=failure">Return to App</a>
     </div>
 </body>
 </html>
