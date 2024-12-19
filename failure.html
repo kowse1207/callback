@@ -62,20 +62,23 @@
             background-color: #d32f2f;
         }
     </style>
-    <script>
-        window.onload = function () {
-            // Deep link for failure callback
-            var deepLink = "myapp://payment-callback?status=failure";
+ 
 
-            // Redirect to the deep link
-            window.location = deepLink;
 
-            // Optional: Fallback timeout in case the app doesn't open
-            setTimeout(function () {
-                console.log("Fallback link triggered.");
-            }, 1500);
-        };
-    </script>
+<script>
+    window.onload = function () {
+        var deepLink = "myapp://payment-callback?status=failure";
+        
+        // Try to redirect to the app
+        window.location.href = deepLink;
+
+        // Fallback if the deep link fails
+        setTimeout(function () {
+            document.getElementById("fallback-message").style.display = "block";
+        }, 2000);
+    };
+</script>
+
 </head>
 <body>
     <div class="failure-container">
