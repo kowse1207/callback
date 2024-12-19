@@ -67,15 +67,15 @@
 
  <script>
         window.onload = function () {
-            // Attempt to open the deep link
-            var deepLink = "myapp://payment-callback?status=success";
+            // Deep link for failure callback
+            var deepLink = "myapp://payment-callback?status=failure";
 
             // Redirect to the deep link
             window.location = deepLink;
 
-            // Optional: Set a timeout for fallback in case deep link fails
+            // Optional: Fallback timeout in case the app doesn't open
             setTimeout(function () {
-                console.log("Fallback link triggered");
+                console.log("Fallback link triggered.");
             }, 1500);
         };
     </script>
