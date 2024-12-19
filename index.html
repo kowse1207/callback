@@ -64,18 +64,19 @@
     </style>
    
     <script>
-    window.onload = function () {
-        var deepLink = "myapp://payment-callback?status=success";
-        
-        // Try to redirect to the app
-        window.location.href = deepLink;
+        window.onload = function () {
+            // Attempt to open the deep link
+            var deepLink = "myapp://payment-callback?status=success";
 
-        // Fallback if the deep link fails
-        setTimeout(function () {
-            document.getElementById("fallback-message").style.display = "block";
-        }, 2000);
-    };
-</script>
+            // Redirect to the deep link
+            window.location = deepLink;
+
+            // Optional: Set a timeout for fallback in case deep link fails
+            setTimeout(function () {
+                console.log("Fallback link triggered");
+            }, 1500);
+        };
+    </script>
 
 </head>
 <body>
